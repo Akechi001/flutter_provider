@@ -78,10 +78,16 @@ class Counter extends StatefulWidget {
 class _CounterState extends State<Counter> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Container( // Wrap each counter in a Container
+      padding: EdgeInsets.all(16), // Adjust padding as needed
+      margin: EdgeInsets.symmetric(vertical: 8), // Adjust margin as needed
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black), // Add a border for separation
+      ),
+      child: Column(
       children: <Widget>[
         Text(
-          'Nilai Counter ${widget.index}:',
+          'Nilai Counter ${widget.index+1}:',
           style: TextStyle(fontSize: 24),
         ),
         Text(
@@ -108,11 +114,13 @@ class _CounterState extends State<Counter> {
             ),
           ],
         ),
+        SizedBox(height: 20),
         ElevatedButton(
           onPressed: widget.onRemove,
           child: Text('Hapus Counter'),
         ),
       ],
+    ),
     );
   }
 }
